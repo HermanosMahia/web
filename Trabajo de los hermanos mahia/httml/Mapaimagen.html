@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Interactivo de Teyvat</title>
+  <link rel="stylesheet" href="../estilos/Mapaimagen.css">
+  <link rel="icon" href="protogema.png" sizes="any">
+</head>
+<body>
+<header>
+  <img src="https://www.pngall.com/wp-content/uploads/13/Genshin-Impact-Logo-PNG-Cutout.png" alt="Genshin Impact Logo"> <!-- Reemplaza con la URL del logo -->
+  <h1>Genshin Impact</h1>
+  <nav>
+    <ul>
+      <li><a href="Pagina%20de%20personajes2.html">Guias</a></li>
+      <li><a href="pagina%20de%20mapas.html">Videos</a></li>
+      <li><a href="pagina%20de%20main%20de%20cris.html">Main</a></li>
+      <li><a href="Formulario.html">Encuesta</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Mapa de Teyvat</h2>
+  <p>Haz clic en las áreas del mapa para obtener más información sobre las regiones de Teyvat:</p>
+  <div class="responsive-map-container">
+    <img src="Teyvat_Map_Art_Genshin_Impact1.png" usemap="#image-map" id="teyvat-map" alt="Mapa de Teyvat en Genshin Impact">
+
+    <map name="image-map">
+      <area target="_blank" alt="Snezhnaya" title="Snezhnaya" href="https://genshin-impact.fandom.com/es/wiki/Snezhnaya" coords="867,685,1050,468,989,115,637,1,376,89,105,370,163,560,544,780" shape="poly" data-original-coords="867,685,1050,468,989,115,637,1,376,89,105,370,163,560,544,780">
+      <area target="_blank" alt="Liyue" title="Liyue" href="https://genshin-impact.fandom.com/es/wiki/Liyue" coords="2926,383,2661,695,2848,1173,3279,980,3245,570" shape="poly" data-original-coords="2926,383,2661,695,2848,1173,3279,980,3245,570">
+      <area target="_blank" alt="Inazuma" title="Inazuma" href="https://genshin-impact.fandom.com/es/wiki/Inazuma" coords="2319,1770,2356,2106,3441,2096,3760,1678,3784,1221,3496,1112" shape="poly" data-original-coords="2319,1770,2356,2106,3441,2096,3760,1678,3784,1221,3496,1112">
+      <area target="_blank" alt="Fontaine" title="Fontaine" href="https://genshin-impact.fandom.com/es/wiki/Fontaine" coords="2325,1258,2366,970,2129,661,1803,644,1596,732,1443,1072,1538,1231" shape="poly" data-original-coords="2325,1258,2366,970,2129,661,1803,644,1596,732,1443,1072,1538,1231">
+      <area target="_blank" alt="Sumeru" title="Sumeru" href="https://genshin-impact.fandom.com/es/wiki/Sumeru" coords="2308,1957,2207,1553,1925,1482,1674,1638,1664,1936,1817,2082" shape="poly" data-original-coords="2308,1957,2207,1553,1925,1482,1674,1638,1664,1936,1817,2082">
+      <area target="_blank" alt="Natlan" title="Natlan" href="https://genshin-impact.fandom.com/es/wiki/Natlan" coords="965,1624,948,2055,426,2123,131,1875,171,1638,606,1533" shape="poly" data-original-coords="965,1624,948,2055,426,2123,131,1875,171,1638,606,1533">
+      <area target="_blank" alt="Mondstadt" title="Mondstadt" href="https://genshin-impact.fandom.com/es/wiki/Mondstadt" coords="3424,658,2950,339,2980,54,3377,34,3696,68,3757,393,3825,546,3760,634" shape="poly" data-original-coords="3424,658,2950,339,2980,54,3377,34,3696,68,3757,393,3825,546,3760,634">
+    </map>
+  </div>
+</main>
+
+<footer>
+  <img src="https://pbs.twimg.com/media/FLhSkYYXIAUxxat.png" alt="Hoyoverse Logo">
+  <p>&copy; 2024 Genshin Impact Fan Page</p>
+  <p>Creado por Daniel y Cristian Mahia. Encuéntrame en <a href="https://www.instagram.com/cristian_rakelo/" target="_blank">Instagram</a> o <a href="https://x.com/Cristian_Rklo" target="_blank">Twitter</a>.</p>
+</footer>
+
+<script>
+  function resizeImageMap() {
+    const image = document.getElementById('teyvat-map');
+    const map = document.querySelector('map[name="image-map"]');
+    const areas = map.getElementsByTagName('area');
+    const originalWidth = 3840; /* Ancho original de la imagen */
+    const scale = image.clientWidth / originalWidth;
+
+    for (let i = 0; i < areas.length; i++) {
+      let coords = areas[i].dataset.originalCoords.split(',');
+      let newCoords = coords.map(coord => Math.round(coord * scale));
+      areas[i].coords = newCoords.join(',');
+    }
+  }
+
+  window.onload = resizeImageMap;
+  window.onresize = resizeImageMap;
+</script>
+
+</body>
+</html>
